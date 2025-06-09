@@ -1,8 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 // Ele transforma uma classe em uma entidade de banco de dados
 @Entity
@@ -10,6 +8,7 @@ import jakarta.persistence.Table;
 public class NinjaModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
