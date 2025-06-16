@@ -3,8 +3,6 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 // Ele transforma uma classe em uma entidade de banco de dados
 @Entity
 @Table(name = "tb_cadastro")
@@ -27,10 +25,11 @@ public class NinjaModel {
     }
 
     //construtor AllArgs
-    public NinjaModel(String nome, String email, int idade) {
+    public NinjaModel(String nome, String email, int idade, MissaoModel missoes) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
+        this.missoes = missoes;
     }
 
     public String getNome() {
@@ -56,4 +55,15 @@ public class NinjaModel {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public MissaoModel getMissoes() {
+        return missoes;
+    }
+
+    public void setMissoes(MissaoModel missoes){
+        this.missoes = missoes;
+    }
+
+    
+
 }
