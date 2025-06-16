@@ -22,9 +22,11 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") //chave estrangeira
     private MissaoModel missoes;
 
+    // construtor noArgs
     public NinjaModel() {
     }
 
+    //construtor AllArgs
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
