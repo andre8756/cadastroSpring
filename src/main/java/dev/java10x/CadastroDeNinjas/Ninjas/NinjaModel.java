@@ -23,22 +23,22 @@ public class NinjaModel {
     @Column(name = "idade")
     private int idade;
 
-    // cada ninja pode ter apenas uma única missão por vez
-    @ManyToOne
-    @JoinColumn(name = "missao_id") //chave estrangeira
-    @JsonIgnore
-    private MissaoModel missao;
+//    // cada ninja pode ter apenas uma única missão por vez
+//    @ManyToOne
+//    @JoinColumn(name = "missao_id") //chave estrangeira
+//    @JsonIgnore
+//    private MissaoModel missao;
 
     // construtor noArgs
     public NinjaModel() {
     }
 
     //construtor AllArgs
-    public NinjaModel(String nome, String email, int idade, MissaoModel missao) {
+    public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
-        this.missao = missao;
+        //this.missao = missao;
     }
 
     public String getNome() {
@@ -65,13 +65,13 @@ public class NinjaModel {
         this.idade = idade;
     }
 
-    public MissaoModel getMissoes() {
-        return missao;
-    }
-
-    public void setMissoes(MissaoModel missao){
-        this.missao = missao;
-    }
+//    public MissaoModel getMissoes() {
+//        return missao;
+//    }
+//
+//    public void setMissoes(MissaoModel missao){
+//        this.missao = missao;
+//    }
 
     @Override
     public String toString() {
@@ -80,7 +80,6 @@ public class NinjaModel {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", idade=" + idade +
-                ", missao=" + missao +
                 '}';
     }
 }
