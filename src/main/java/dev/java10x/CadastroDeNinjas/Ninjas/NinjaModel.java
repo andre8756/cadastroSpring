@@ -1,5 +1,7 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
 
@@ -11,25 +13,32 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "idade")
     private int idade;
 
     // cada ninja pode ter apenas uma única missão por vez
     @ManyToOne
-    @JoinColumn(name = "missoes_id") //chave estrangeira
-    private MissaoModel missoes;
+    @JoinColumn(name = "missao_id") //chave estrangeira
+    @JsonIgnore
+    private MissaoModel missao;
 
     // construtor noArgs
     public NinjaModel() {
     }
 
     //construtor AllArgs
-    public NinjaModel(String nome, String email, int idade, MissaoModel missoes) {
+    public NinjaModel(String nome, String email, int idade, MissaoModel missao) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
-        this.missoes = missoes;
+        this.missao = missao;
     }
 
     public String getNome() {
@@ -57,13 +66,21 @@ public class NinjaModel {
     }
 
     public MissaoModel getMissoes() {
-        return missoes;
+        return missao;
     }
 
-    public void setMissoes(MissaoModel missoes){
-        this.missoes = missoes;
+    public void setMissoes(MissaoModel missao){
+        this.missao = missao;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "NinjaModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", idade=" + idade +
+                ", missao=" + missao +
+                '}';
+    }
 }
