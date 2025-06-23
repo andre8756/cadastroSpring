@@ -41,6 +41,10 @@ public class NinjaModel {
         //this.missao = missao;
     }
 
+    public Long getId(){
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
