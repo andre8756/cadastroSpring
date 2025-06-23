@@ -13,4 +13,9 @@ public class NinjaController {
         return "Essa é a minha primeira mensagem nesta rota";
     }
 
+    //Falta implementar o resto do Create, delete e update
+    //Testar oo banco de dados
+    //Implementar as funcionalidades de Ninja e Missao (relacionamento)
+    //Fazer um Front para o projeto em Angular
+
 }
